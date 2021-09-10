@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = renameFiles;
+
+var _index = require("../extensions/index.js");
 
 /**
  * There's a list of file, since two files cannot have equal names,
@@ -15,18 +22,21 @@ import { NotImplementedError } from '../extensions/index.js';
  * the output should be ["file", "file(1)", "image", "file(1)(1)", "file(2)"]
  *
  */
-export default function renameFiles(names) {
-  let original_names = {};
-  for (let i=0; i<names.length; i++) {
-    console.log(original_names)
-    let count = 1;
+function renameFiles(names) {
+  var original_names = {};
+
+  for (var i = 0; i < names.length; i++) {
+    console.log(original_names);
+    var count = 1;
+
     if (original_names.hasOwnProperty(names[i])) {
       original_names[names[i]] += 1;
-      names[i] = `${names[i]}(${original_names[names[i]] - 1})`;
+      names[i] = "".concat(names[i], "(").concat(original_names[names[i]] - 1, ")");
       original_names[names[i]] = 1;
     } else {
       original_names[names[i]] = 1;
     }
   }
+
   return names;
 }

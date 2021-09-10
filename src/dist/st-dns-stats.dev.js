@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = getDNSStats;
+
+var _index = require("../extensions/index.js");
 
 /**
  * Given an array of domains, return the object with the appearances of the DNS.
@@ -22,29 +29,35 @@ import { NotImplementedError } from '../extensions/index.js';
  * }
  *
  */
-export default function getDNSStats(domains) {
-  let stats = {};
-  for (let i=0; i<domains.length; i++) {
-    let domain = domains[i];
-    let domain_str = '';
+function getDNSStats(domains) {
+  var stats = {};
+
+  for (var i = 0; i < domains.length; i++) {
+    var domain = domains[i];
+    var domain_str = '';
+
     while (domain.length > 0) {
-      let dns_substr = domain.lastIndexOf('.') !== -1 ? domain.slice(domain.lastIndexOf('.')) : `.${domain}`;
+      var dns_substr = domain.lastIndexOf('.') !== -1 ? domain.slice(domain.lastIndexOf('.')) : ".".concat(domain);
       domain_str += dns_substr;
+
       if (stats[domain_str]) {
         stats[domain_str] += 1;
       } else {
         stats[domain_str] = 1;
       }
+
       if (domain.indexOf('.') === -1) {
         domain = '';
       } else {
-         domain = domain.slice(0, domain.lastIndexOf('.'));
+        domain = domain.slice(0, domain.lastIndexOf('.'));
       }
-      console.log(domain)
+
+      console.log(domain);
     }
   }
-  console.log(stats)
-  return stats
+
+  console.log(stats);
+  return stats;
 }
 
 getDNSStats(['epam.com']);

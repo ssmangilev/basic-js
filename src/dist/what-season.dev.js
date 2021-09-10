@@ -24,6 +24,14 @@ function getSeason(date) {
   } else if (date.getMonth !== Date.prototype.getMonth) {
     throw new Error("Invalid date!");
   } else {
+    try {
+      date.getMonth();
+    } catch (e) {
+      if (e instanceof TypeError) {
+        throw new Error("Invalid date!");
+      }
+    }
+
     if (date.getMonth() + 1 == 12 || date.getMonth() + 1 == 1 || date.getMonth() + 1 == 2) {
       return 'winter';
     } else if (date.getMonth() + 1 == 3 || date.getMonth() + 1 == 4 || date.getMonth() + 1 == 5) {

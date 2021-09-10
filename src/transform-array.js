@@ -13,12 +13,12 @@ import { NotImplementedError } from '../extensions/index.js';
  * 
  */
 export default function transform(arr) {
-  let result_arr = []
+  let result_arr = [];
+  if (!Array.isArray(arr)) {
+    throw new Error(`\'arr\' parameter must be an instance of the Array!`)
+  }
   if (arr.length == 0) {
     return arr
-  }
-  if (!Array.isArray(arr)) {
-    throw new Error(`'arr' parameter must be an instance of the Array!`)
   }
   for (let i=0;i<arr.length;i++) {
     if (arr[i] === '--discard-next') {

@@ -35,7 +35,7 @@ export default class VigenereCipheringMachine {
   }
   encrypt(phrase, keyWord) {
     if (typeof(phrase) === 'undefined' || typeof(keyWord) === 'undefined') {
-      throw new Error();
+      throw new Error('Incorrect arguments!');
     }
     let result_string = '';
     phrase = phrase.toUpperCase();
@@ -54,7 +54,7 @@ export default class VigenereCipheringMachine {
   }
   decrypt(encryptedPhrase, keyWord) {
     if (typeof(encryptedPhrase) === 'undefined' || typeof(keyWord) === 'undefined') {
-      throw new Error();
+      throw new Error('Incorrect arguments!');
     }
     let result_string = '';
     encryptedPhrase = encryptedPhrase.toUpperCase();

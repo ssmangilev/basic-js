@@ -18,6 +18,14 @@ export default function getSeason(date) {
     throw new Error("Invalid date!");
   }
   else {
+    try {
+      date.getMonth();
+    }
+    catch(e) {
+      if (e instanceof TypeError) {
+        throw new Error("Invalid date!");
+      }
+    }
     if (date.getMonth()+1 == 12 || date.getMonth()+1 == 1 || date.getMonth()+1 == 2) {
       return 'winter';
     }

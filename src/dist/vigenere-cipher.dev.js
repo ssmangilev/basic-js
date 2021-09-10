@@ -59,7 +59,7 @@ function () {
     key: "encrypt",
     value: function encrypt(phrase, keyWord) {
       if (typeof phrase === 'undefined' || typeof keyWord === 'undefined') {
-        throw new Error();
+        throw new Error('Incorrect arguments!');
       }
 
       var result_string = '';
@@ -82,7 +82,7 @@ function () {
     key: "decrypt",
     value: function decrypt(encryptedPhrase, keyWord) {
       if (typeof encryptedPhrase === 'undefined' || typeof keyWord === 'undefined') {
-        throw new Error();
+        throw new Error('Incorrect arguments!');
       }
 
       var result_string = '';

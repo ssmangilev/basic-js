@@ -23,12 +23,12 @@ var _index = require("../extensions/index.js");
 function transform(arr) {
   var result_arr = [];
 
-  if (arr.length == 0) {
-    return arr;
-  }
-
   if (!Array.isArray(arr)) {
     throw new Error("'arr' parameter must be an instance of the Array!");
+  }
+
+  if (arr.length == 0) {
+    return arr;
   }
 
   for (var i = 0; i < arr.length; i++) {
