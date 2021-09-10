@@ -1,5 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = createDreamTeam;
+
+var _index = require("../extensions/index.js");
 
 /**
  * Create name of dream team based on the names of its members
@@ -14,20 +20,24 @@ import { NotImplementedError } from '../extensions/index.js';
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-export default function createDreamTeam(members) {
-  let result_members = []
+function createDreamTeam(members) {
+  var result_members = [];
+
   if (!Array.isArray(members)) {
     return false;
   }
+
   if (members.length == 0) {
     return null;
   }
-  for (let i=0; i<members.length; i++) {
-    if (typeof(members[i]) === 'string') {
-      result_members.push(members[i].trim()[0].toUpperCase())
-    }
-    else {continue}
-  }
-  return String(result_members.sort().join(""))
-}
 
+  for (var i = 0; i < members.length; i++) {
+    if (typeof members[i] === 'string') {
+      result_members.push(members[i].trim()[0].toUpperCase());
+    } else {
+      continue;
+    }
+  }
+
+  return String(result_members.sort().join(""));
+}

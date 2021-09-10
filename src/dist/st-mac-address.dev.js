@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = isMAC48Address;
+
+var _index = require("../extensions/index.js");
 
 /**
  * The MAC-48 address is six groups of two hexadecimal digits (0 to 9 or A to F),
@@ -14,6 +21,8 @@ import { NotImplementedError } from '../extensions/index.js';
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-export default function isMAC48Address(n) {
-  return !(new Set(n.split('-').map((item) => (item.search(/([A-F0-9]){2}/g) === 0))).has(false));
+function isMAC48Address(n) {
+  return !new Set(n.split('-').map(function (item) {
+    return item.search(/([A-F0-9]){2}/g) === 0;
+  })).has(false);
 }

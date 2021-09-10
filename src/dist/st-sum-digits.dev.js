@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = getSumOfDigits;
+
+var _index = require("../extensions/index.js");
 
 /**
  * Given a number, replace this number with
@@ -12,17 +19,21 @@ import { NotImplementedError } from '../extensions/index.js';
  * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
  *
  */
-export default function getSumOfDigits(n) {
+function getSumOfDigits(n) {
   if (n < 10) {
     return n;
   }
-  let nSum = 0;
-  const nArr = String(n).split('');
-  for (let i = 0; i < nArr.length; i++) {
+
+  var nSum = 0;
+  var nArr = String(n).split('');
+
+  for (var i = 0; i < nArr.length; i++) {
     nSum += Number(nArr[i]);
   }
+
   if (nSum >= 10) {
     nSum = getSumOfDigits(nSum);
   }
+
   return nSum;
 }

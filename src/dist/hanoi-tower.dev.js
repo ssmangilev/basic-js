@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = calculateHanoi;
+
+var _index = require("../extensions/index.js");
 
 /**
  * Calculate turns number and time (in seconds) required
@@ -14,12 +21,11 @@ import { NotImplementedError } from '../extensions/index.js';
  * calculateHanoi(9, 4308) => { turns: 511, seconds: 427 }
  *
  */
-export default function calculateHanoi(disksNumber, turnsSpeed) {
-  let turns = Math.pow(2, disksNumber) - 1;
-  let seconds =  Math.floor(turns/(turnsSpeed/3600))
+function calculateHanoi(disksNumber, turnsSpeed) {
+  var turns = Math.pow(2, disksNumber) - 1;
+  var seconds = Math.floor(turns / (turnsSpeed / 3600));
   return {
     turns: turns,
-    seconds: seconds,
-  }
+    seconds: seconds
+  };
 }
-
